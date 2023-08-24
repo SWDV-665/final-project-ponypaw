@@ -1,0 +1,287 @@
+<!--
+  Generated template for the ModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-button right>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button full (click)="openCamera()">Open Camera</button>
+  <img [src]="base64Image ? base64Image : null"/>
+  <button ion-button full (click)="saveImage(base64Image)">Save Image</button>
+
+  <h3>
+    Name:
+    <ion-item>
+      <ion-textarea 
+        label="name" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.name}}"
+        value= "{{myPet.name}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item>
+  </h3>
+
+  <p>Species:
+    <ion-item>
+      <ion-textarea 
+        label="species" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.species}}"
+        value= "{{myPet.species}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Morph:
+    <ion-item>
+      <ion-textarea 
+        label="morph" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.morph}}"
+        value= "{{myPet.morph}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Hatch Date: 
+    <ion-item>
+      <ion-textarea 
+        label="hatchDate" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.hatchDate}}"
+        value= "{{myPet.hatchDate}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item></p>
+  <p>Length:
+    <ion-item>
+      <ion-textarea 
+        label="length" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.length}}"
+        value= "{{myPet.length}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Weight:
+    <ion-item>
+      <ion-textarea 
+        label="weight" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.weight}}"
+        value= "{{myPet.weight}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Previous Weight:
+    <ion-item>
+      <ion-textarea 
+        label="lastWeight" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastWeight}}"
+        value= "{{myPet.lastWeight}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Date of Last Weighing:
+    <ion-item>
+      <ion-textarea 
+        label="lastWeightDate" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastWeightDate}}"
+        value= "{{myPet.lastWeightDate}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Condition:
+    <ion-item>
+      <ion-textarea 
+        label="condition" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.condition}}"
+        value= "{{myPet.condition}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>UVB Install Date:
+    <ion-item>
+      <ion-textarea 
+        label="uvbInstallDate" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.uvbInstallDate}}"
+        value= "{{myPet.uvbInstallDate}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>UVB Strength:
+    <ion-item>
+      <ion-textarea 
+        label="uvbStrength" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.uvbStrength}}"
+        value= "{{myPet.uvbStrength}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Warm Side Temperature:
+    <ion-item>
+      <ion-textarea 
+        label="warmTemp" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.warmTemp}}"
+        value= "{{myPet.warmTemp}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Cool Side Temperature:
+    <ion-item>
+      <ion-textarea 
+        label="coolTemp" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.coolTemp}}"
+        value= "{{myPet.coolTemp}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Humidity: <ion-item>
+    <ion-textarea 
+      label="humidity" 
+      labelPlacement="stacked" 
+      placeholder="{{myPet.humidity}}"
+      value= "{{myPet.humidity}}"
+      [autoGrow]="false"
+      >
+    </ion-textarea>
+    </ion-item></p>
+  <p>Enclosure Size:
+    <ion-item>
+      <ion-textarea 
+        label="encloseSize" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.encloseSize}}"
+        value= "{{myPet.encloseSize}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Last Meal Date:
+    <ion-item>
+      <ion-textarea 
+        label="lastMealDate" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastMealDate}}"
+        value= "{{myPet.lastMealDate}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Last Meal Type:
+    <ion-item>
+      <ion-textarea 
+        label="lastMealType" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastMealType}}"
+        value= "{{myPet.lastMealType}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Last Meal Additives:
+    <ion-item>
+      <ion-textarea 
+        label="lastMealAdds" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastMealAdds}}"
+        value= "{{myPet.lastMealAdds}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Last Shed Date:
+    <ion-item>
+      <ion-textarea 
+        label="lastShed" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastShed}}"
+        value= "{{myPet.lastShed}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Last Exrement Date:
+    <ion-item>
+      <ion-textarea 
+        label="lastPoo" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastPoo}}"
+        value= "{{myPet.lastPoo}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Last Excrement Notes:
+    <ion-item>
+      <ion-textarea 
+        label="lastPooNotes" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.lastPooNotes}}"
+        value= "{{myPet.lastPooNotes}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Medications:
+    <ion-item>
+      <ion-textarea 
+        label="meds" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.meds}}"
+        value= "{{myPet.meds}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Procedures:
+    <ion-item>
+      <ion-textarea 
+        label="procedures" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.procedures}}"
+        value= "{{myPet.procedures}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+  <p>Notes:
+    <ion-item>
+      <ion-textarea 
+        label="notes" 
+        labelPlacement="stacked" 
+        placeholder="{{myPet.notes}}"
+        value= "{{myPet.notes}}"
+        [autoGrow]="false"
+        >
+      </ion-textarea>
+    </ion-item> </p>
+
+</ion-content>

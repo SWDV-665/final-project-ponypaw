@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title >
+      <div>
+        <h3>{{title}}</h3>
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h3 text-center *ngIf="!listData">
+    No records available.
+  </h3>
+
+<ion-list lines="full">
+    <ion-item *ngFor="let pet of listData; let i = index">
+      <a ion-item (click)="openModal(i)">
+        {{pet.name}} <br>
+        Born: {{pet.hatchDate}}
+      </a>
+      <button ion-button  clear item-end (click)="editPet(i)">Edit</button>
+      <button ion-button  clear item-end (click)="removeItem(i)">Delete</button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addPet()" ><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
