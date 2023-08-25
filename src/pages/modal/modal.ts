@@ -3,6 +3,7 @@ import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 import { ReptiServiceProvider } from '../../providers/repti-service/repti-service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
+import { FormControl, FormGroup } from '@angular/forms';
 
 /**
  * Generated class for the ModalPage page.
@@ -22,6 +23,13 @@ export class ModalPage {
   base64Image:string;
 
   constructor(private storage: Storage, private camera: Camera, private navParams: NavParams, private view: ViewController, public dataService: ReptiServiceProvider) {
+    if(this.navParams.data) {
+      this.index = this.navParams.data;
+      this.myPet = this.storage.get("name").then(result => {
+        return result.index(this.index);
+      });
+      console.log(this.myPet);
+    }
   }
 
   ionViewWillLoad() {
@@ -30,16 +38,47 @@ export class ModalPage {
     this.storage.get('petsArray').then(
       ids => this.storage.keys = ids
     );
-
-    console.log(this.myPet);
     
   }
 
+  private formData: FormGroup;
 
-  closeModal() {
-    const data = this.myPet
+  ngOnInit() {
+    this.formData = new FormGroup({
+      name: new FormControl(),
+      species: new FormControl(),
+      morph: new FormControl(),
+      hatchDate: new FormControl(),
+      length: new FormControl(),
+      weight: new FormControl(),
+      lastWeight: new FormControl(),
+      lastWeightDate: new FormControl(),
+      condition: new FormControl(),
+      uvbInstallDate: new FormControl(),
+      uvbStrength: new FormControl(),
+      warmTemp: new FormControl(),
+      coolTemp: new FormControl(),
+      humidity: new FormControl(),
+      encloseSize: new FormControl(),
+      lastMealDate: new FormControl(),
+      lastMealType: new FormControl(),
+      lastMealAdds: new FormControl(),
+      lastShed: new FormControl(),
+      lastPoo: new FormControl(),
+      lastPooNotes: new FormControl(),
+      meds: new FormControl(),
+      procedures: new FormControl(),
+      notes: new FormControl()
+    });
+  }
 
-    // save edited data to myPet
+  onSubmit() {
+    console.log(this.formData.value);
+    this.dataService.addData(this.formData.value);
+  }
+
+  closeModal(i?) {
+    const data = this.formData;
 
     // return the new myPet info
     this.view.dismiss(data);

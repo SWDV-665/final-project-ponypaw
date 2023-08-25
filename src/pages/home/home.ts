@@ -14,7 +14,6 @@ export class HomePage {
 
   async loadData() {
     this.listData = await this.dataService.getData();
-    console.log("Load data run.");
   }
 
   async addData(pet) {
@@ -27,37 +26,34 @@ export class HomePage {
     this.listData.splice(index, 1);
   }
 
-  addPet() {
-    this.dataService.editPrompt();
+  createPetRecord() {
+    this.openModal();
   }
-
-
-  // savePets() {
-  //   let petsArray = this.loadPets();
-  //   this.dataService.savePets(petsArray);
-  // }
-
-  // reloadPets() {
-  //   this.dataService.getPets();
-  //   return this.dataService.pets;
-  // }
-
-
-
-  // editPet(i) {
-  //   this.dataService.editPet(i);
-  // }
 
   constructor(public modalCtrl: ModalController,public navCtrl: NavController, public dataService: ReptiServiceProvider) { 
     this.loadData();
   }
   
-  openModal(i) {
-    const modal: Modal = this.modalCtrl.create('ModalPage', {data: i});
-    modal.present();
-    modal.onWillDismiss((data) => {
-      console.log(data);
+  openModal(i?) {
+    if(i) {
+      const modal: Modal = this.modalCtrl.create('ModalPage', {data: i});
+      modal.present();
+      modal.onWillDismiss((data) => {
+      console.log("modal data is" + data);
+      // overwrite existing pet info at i and save
     });
+    } else {
+      const modal: Modal = this.modalCtrl.create('ModalPage');
+      modal.present();
+      modal.onWillDismiss((data) => {
+      console.log("modal data is");
+      console.log(data);
+      this.dataService.addData(data);
+      // save new pet data
+    });
+    }
+    
+    
   }
 
 }

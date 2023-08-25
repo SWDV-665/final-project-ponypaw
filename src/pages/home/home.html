@@ -20,13 +20,12 @@
         {{pet.name}} <br>
         Born: {{pet.hatchDate}}
       </a>
-      <button ion-button  clear item-end (click)="editPet(i)">Edit</button>
       <button ion-button  clear item-end (click)="removeItem(i)">Delete</button>
     </ion-item>
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab (click)="addPet()" ><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="createPetRecord()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 </ion-content>
