@@ -39,15 +39,12 @@ export class HomePage {
       const modal: Modal = this.modalCtrl.create('ModalPage', {data: i});
       modal.present();
       modal.onWillDismiss((data) => {
-      console.log("modal data is" + data);
       // overwrite existing pet info at i and save
     });
     } else {
       const modal: Modal = this.modalCtrl.create('ModalPage');
       modal.present();
       modal.onWillDismiss((data) => {
-      console.log("modal data is");
-      console.log(data);
       this.dataService.addData(data);
       // save new pet data
     });

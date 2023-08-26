@@ -5,6 +5,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
 import { FormControl, FormGroup } from '@angular/forms';
 
+const STORAGE_KEY = "mylist";
 /**
  * Generated class for the ModalPage page.
  *
@@ -22,15 +23,37 @@ export class ModalPage {
   myPet = {};
   base64Image:string;
 
+  loadPet(index){
+    this.storage.get(STORAGE_KEY).then((result) => {  
+     result.forEach(element => {
+       let i = JSON.stringify(element.name);
+       i = i.replace(/['"]+/g, '');
+       console.log(i);
+       console.log(index);
+         if (i == index) {
+           this.myPet = element;
+           console.log(this.myPet);
+         } else {
+           console.log("Nothing found");
+           return;
+         }
+     });
+     
+   })
+ }
+
   constructor(private storage: Storage, private camera: Camera, private navParams: NavParams, private view: ViewController, public dataService: ReptiServiceProvider) {
+    
+    // if index has been passed, get pet at index from storage and save info as myPet{}
     if(this.navParams.data) {
-      this.index = this.navParams.data;
-      this.myPet = this.storage.get("name").then(result => {
-        return result.index(this.index);
-      });
+      this.index = this.navParams.data.data; // gives actual data passed
+      this.loadPet(this.index);
       console.log(this.myPet);
     }
   }
+
+
+  
 
   ionViewWillLoad() {
     this.index = this.navParams.get('data');
@@ -45,6 +68,7 @@ export class ModalPage {
 
   ngOnInit() {
     this.formData = new FormGroup({
+      image: new FormControl(),
       name: new FormControl(),
       species: new FormControl(),
       morph: new FormControl(),

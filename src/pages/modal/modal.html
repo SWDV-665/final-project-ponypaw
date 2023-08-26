@@ -6,12 +6,12 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <button ion-button full (click)="openCamera()">Open Camera</button>
-  <img [src]="base64Image ? base64Image : null"/>
-  <button ion-button full (click)="saveImage(base64Image)">Save Image</button>
 
   <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <!-- <button ion-button full (click)="openCamera()">Open Camera</button>
+    <img formControlName="image" [src]="base64Image ? base64Image : null"/> -->
 
     <h3>
       Name:
@@ -21,8 +21,8 @@
         formControlName="name"
         label="name" 
         labelPlacement="stacked" 
-        placeholder="{{myPet.name}}"
-        value= "{{myPet.name}}"
+        placeholder="name"
+        value= "{{myPet.name ? myPet.name : null}}"
         [autoGrow]="false"
         >
       </ion-input>
@@ -33,8 +33,8 @@
           formControlName="species"
           label="species" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.species}}"
-          value= "{{myPet.species}}"
+          placeholder="species"
+          value= "{{myPet.species ? myPet.species : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -46,8 +46,8 @@
           formControlName="morph"
           label="morph" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.morph}}"
-          value= "{{myPet.morph}}"
+          placeholder="morph"
+          value= "{{myPet.morph ? myPet.morph : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -59,8 +59,8 @@
           formControlName="hatchDate"
           label="hatchDate" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.hatchDate}}"
-          value= "{{myPet.hatchDate}}"
+          placeholder="hatchDate"
+          value= "{{myPet.hatchDate ? myPet.hatchDate : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -72,8 +72,8 @@
           formControlName="length"
           label="length" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.length}}"
-          value= "{{myPet.length}}"
+          placeholder="length"
+          value= "{{myPet.length ? myPet.length : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -85,8 +85,8 @@
           formControlName="weight"
           label="weight" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.weight}}"
-          value= "{{myPet.weight}}"
+          placeholder="weight"
+          value= "{{myPet.weight ? myPet.weight : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -98,8 +98,8 @@
           formControlName="lastWeight"
           label="lastWeight" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastWeight}}"
-          value= "{{myPet.lastWeight}}"
+          placeholder="lastWeight"
+          value= "{{myPet.lastWeight ? myPet.lastWeight : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -111,8 +111,8 @@
           formControlName="lastWeightDate"
           label="lastWeightDate" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastWeightDate}}"
-          value= "{{myPet.lastWeightDate}}"
+          placeholder="lastWeightDate"
+          value= "{{myPet.lastWeightDate ? myPet.lastWeightDate : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -124,8 +124,8 @@
           formControlName="condition"
           label="condition" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.condition}}"
-          value= "{{myPet.condition}}"
+          placeholder="condition"
+          value= "{{myPet.condition ? myPet.condition : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -137,8 +137,8 @@
           formControlName="uvbInstallDate"
           label="uvbInstallDate" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.uvbInstallDate}}"
-          value= "{{myPet.uvbInstallDate}}"
+          placeholder="uvbInstallDate"
+          value= "{{myPet.uvbInstallDate ? myPet.uvbInstallDate : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -150,8 +150,8 @@
           formControlName="uvbStrength"
           label="uvbStrength" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.uvbStrength}}"
-          value= "{{myPet.uvbStrength}}"
+          placeholder="uvbStrength"
+          value= "{{myPet.uvbStrength ? myPet.uvbStrength : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -163,8 +163,8 @@
           formControlName="warmTemp"
           label="warmTemp" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.warmTemp}}"
-          value= "{{myPet.warmTemp}}"
+          placeholder="warmTemp"
+          value= "{{myPet.warmTemp ? myPet.warmTemp : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -176,8 +176,8 @@
           formControlName="coolTemp"
           label="coolTemp" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.coolTemp}}"
-          value= "{{myPet.coolTemp}}"
+          placeholder="coolTemp"
+          value= "{{myPet.coolTemp ? myPet.coolTemp : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -189,8 +189,8 @@
           formControlName="humidity"
           label="humidity" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.humidity}}"
-          value= "{{myPet.humidity}}"
+          placeholder="humidity"
+          value= "{{myPet.humidity ? myPet.humidity : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -202,8 +202,8 @@
           formControlName="encloseSize"
           label="encloseSize" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.encloseSize}}"
-          value= "{{myPet.encloseSize}}"
+          placeholder="encloseSize"
+          value= "{{myPet.encloseSize ? myPet.encloseSize : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -215,8 +215,8 @@
           formControlName="lastMealDate"
           label="lastMealDate" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastMealDate}}"
-          value= "{{myPet.lastMealDate}}"
+          placeholder="lastMealDate"
+          value= "{{myPet.lastMealDate ? myPet.lastMealDate : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -228,8 +228,8 @@
           formControlName="lastMealType"
           label="lastMealType" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastMealType}}"
-          value= "{{myPet.lastMealType}}"
+          placeholder="lastMealType"
+          value= "{{myPet.lastMealType ? myPet.lastMealType : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -241,8 +241,8 @@
           formControlName="lastMealAdds"
           label="lastMealAdds" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastMealAdds}}"
-          value= "{{myPet.lastMealAdds}}"
+          placeholder="lastMealAdds"
+          value= "{{myPet.lastMealAdds ? myPet.lastMealAdds : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -254,8 +254,8 @@
           formControlName="lastShed"
           label="lastShed" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastShed}}"
-          value= "{{myPet.lastShed}}"
+          placeholder="lastShed"
+          value= "{{myPet.lastShed ? myPet.lastShed : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -267,8 +267,8 @@
           formControlName="lastPoo"
           label="lastPoo" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastPoo}}"
-          value= "{{myPet.lastPoo}}"
+          placeholder="lastPoo"
+          value= "{{myPet.lastPoo ? myPet.lastPoo : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -280,8 +280,8 @@
           formControlName="lastPooNotes"
           label="lastPooNotes" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.lastPooNotes}}"
-          value= "{{myPet.lastPooNotes}}"
+          placeholder="lastPooNotes"
+          value= "{{myPet.lastPooNotes ? myPet.lastPooNotes : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -293,8 +293,8 @@
           formControlName="meds"
           label="meds" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.meds}}"
-          value= "{{myPet.meds}}"
+          placeholder="meds"
+          value= "{{myPet.meds ? myPet.meds : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -306,8 +306,8 @@
           formControlName="procedures"
           label="procedures" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.procedures}}"
-          value= "{{myPet.procedures}}"
+          placeholder="procedures"
+          value= "{{myPet.procedures ? myPet.procedures : null}}"
           [autoGrow]="false"
           >
         </ion-input>
@@ -319,8 +319,8 @@
           formControlName="notes"
           label="notes" 
           labelPlacement="stacked" 
-          placeholder="{{myPet.notes}}"
-          value= "{{myPet.notes}}"
+          placeholder="notes"
+          value= "{{myPet.notes ? myPet.notes : null}}"
           [autoGrow]="false"
           >
         </ion-input>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, Item } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Storage } from '@ionic/storage';
 
@@ -52,6 +52,25 @@ export class ReptiServiceProvider {
     const storedData = await this.storage.get(STORAGE_KEY) || [];
     storedData.splice(index, 1);
     return this.storage.set(STORAGE_KEY, storedData);
+  }
+
+  async updateItem(item) {
+    return this.storage.get(STORAGE_KEY).then((items:Item[]) => {
+      if(!items || items.length === 0) {
+        return null;
+      }
+
+      let newItems: Item[] = [];
+
+      for (let i of items) {
+        if (i._name === item.name) {
+          newItems.push(item)
+        } else {
+          newItems.push(i);
+        }
+      }
+      return this.storage.set(STORAGE_KEY, newItems);
+    });
   }
   
 }
