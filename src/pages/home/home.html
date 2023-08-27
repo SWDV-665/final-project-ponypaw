@@ -8,13 +8,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="dark">
 
-  <h3 text-center *ngIf="!listData">
+  <h3 text-center *ngIf="listData.length < 1">
     No records available.
   </h3>
 
-<ion-list lines="full">
+<ion-list inset="true">
     <ion-item *ngFor="let pet of listData; let i = index">
       <a ion-item (click)="openModal(pet.name)">
         {{pet.name}} <br>

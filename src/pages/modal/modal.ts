@@ -101,7 +101,7 @@ export class ModalPage {
     this.dataService.addData(this.formData.value);
   }
 
-  closeModal(i?) {
+  closeModal() {
     const data = this.formData;
 
     // return the new myPet info

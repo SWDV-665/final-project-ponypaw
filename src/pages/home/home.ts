@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, Modal } from 'ionic-angular';
 import { ReptiServiceProvider } from '../../providers/repti-service/repti-service';
+import { NgZone } from '@angular/core';
 
 
 @Component({
@@ -30,8 +31,14 @@ export class HomePage {
     this.openModal();
   }
 
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public dataService: ReptiServiceProvider) { 
+  constructor(private zone: NgZone,public modalCtrl: ModalController,public navCtrl: NavController, public dataService: ReptiServiceProvider) { 
     this.loadData();
+  }
+
+  refresh() {
+    this.zone.run(() => {
+      console.log('force update the screen');
+    });
   }
   
   openModal(i?) {
@@ -40,13 +47,15 @@ export class HomePage {
       modal.present();
       modal.onWillDismiss((data) => {
       // overwrite existing pet info at i and save
+      this.dataService.updateItem(data);
     });
     } else {
       const modal: Modal = this.modalCtrl.create('ModalPage');
       modal.present();
       modal.onWillDismiss((data) => {
+        // save new pet data
       this.dataService.addData(data);
-      // save new pet data
+      
     });
     }
     

@@ -38,6 +38,8 @@ export class ReptiServiceProvider {
   }
 
   getData() {
+    console.log("Storage is ");
+    console.log(this.storage.length());
     return this.storage.get(STORAGE_KEY) || [];
   }
 
